@@ -1,8 +1,15 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1
+
+LABEL "com.github.actions.name"="Auto Release Miletsone"
+LABEL "com.github.actios.description"="Drafts a github release"
+
+LABEL version="0.1.0"
+LABEL repository="https://github.com/ShaunMendes/docker-action.git"
+LABEL maintainer="Shaun Mendes"
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
