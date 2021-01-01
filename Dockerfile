@@ -8,6 +8,13 @@ LABEL version="0.1.0"
 LABEL repository="https://github.com/ShaunMendes/docker-action.git"
 LABEL maintainer="Shaun Mendes"
 
+#Install jquery
+RUN apt-get update -y && apt-get install -y jq
+
+RUN dotnet tool install -g GitReleaseManager.Tool
+# Adding to path
+ENV PATH /roots/.dotnet/tools:$PATH  
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /
 
