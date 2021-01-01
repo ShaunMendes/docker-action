@@ -42,4 +42,3 @@ fi
 echo ::set-output name=release-url::$release_url
 
 exit 0
-
